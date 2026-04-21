@@ -1,65 +1,113 @@
-import Image from "next/image";
+import HashGenerator from '@/components/HashGenerator';
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10 sm:px-6">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          Hash Generator
+        </h1>
+        <p className="mt-2 text-muted text-sm">
+          Generate MD5, SHA-1, SHA-256, SHA-384, SHA-512 hashes from text or
+          files. 100% client-side &mdash; nothing leaves your browser.
+        </p>
+
+        <div className="mt-8">
+          <HashGenerator />
+        </div>
+
+        {/* AdSense placeholder */}
+        <div className="my-10 flex items-center justify-center rounded-lg border border-dashed border-card-border py-8 text-xs text-muted">
+          Advertisement
+        </div>
+
+        {/* SEO Content */}
+        <article className="max-w-none mt-10 space-y-6 text-sm leading-relaxed text-muted">
+          <h2 className="text-lg font-semibold text-foreground">
+            What Is a Hash Function?
+          </h2>
+          <p>
+            A cryptographic hash function takes an arbitrary amount of data and
+            produces a fixed-size output called a <strong className="text-foreground">digest</strong> or{' '}
+            <strong className="text-foreground">hash</strong>. The same input always produces the same
+            output, but even a single-bit change in the input produces a
+            completely different hash. This one-way property makes hashes ideal
+            for verifying data integrity, storing passwords securely, and
+            generating digital signatures.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
+          <h2 className="text-lg font-semibold text-foreground">
+            Supported Algorithms
+          </h2>
+          <p>
+            This tool supports five widely-used hash algorithms. <strong className="text-foreground">MD5</strong>{' '}
+            (Message Digest 5) produces a 128-bit hash. While fast, MD5 is no
+            longer considered cryptographically secure due to known collision
+            attacks; it remains useful for checksums and non-security file
+            verification. <strong className="text-foreground">SHA-1</strong> (Secure Hash Algorithm 1)
+            outputs a 160-bit digest. Like MD5, it has been deprecated for
+            security use by NIST since 2011 but is still common in legacy
+            systems.
+          </p>
+          <p>
+            The <strong className="text-foreground">SHA-2 family</strong> &mdash; SHA-256, SHA-384, and SHA-512 &mdash;
+            is the current standard recommended by NIST for security
+            applications. SHA-256 produces a 256-bit hash and is used in TLS
+            certificates, Bitcoin mining, and software distribution
+            verification. SHA-384 and SHA-512 offer larger digest sizes for
+            applications that need extra collision resistance, such as
+            government and financial systems.
+          </p>
+
+          <h2 className="text-lg font-semibold text-foreground">
+            Common Use Cases
+          </h2>
+          <p>
+            <strong className="text-foreground">File integrity verification</strong> &mdash; after downloading a
+            file, compare its hash against the one published by the author to
+            ensure the file has not been tampered with or corrupted during
+            transfer. <strong className="text-foreground">Password storage</strong> &mdash; applications store
+            hashes of passwords rather than plaintext; during login the entered
+            password is hashed and compared. <strong className="text-foreground">Digital signatures</strong>
+            {' '}&mdash; signing algorithms hash the document first, then encrypt the hash
+            with a private key.{' '}
+            <strong className="text-foreground">Deduplication and caching</strong> &mdash; content-addressable
+            storage systems use hashes to identify unique blocks of data.
+          </p>
+
+          <h2 className="text-lg font-semibold text-foreground">
+            How This Tool Works
+          </h2>
+          <p>
+            Every computation happens entirely inside your browser using the{' '}
+            <strong className="text-foreground">Web Crypto API</strong> (for SHA variants) and a pure
+            JavaScript implementation (for MD5). No data is ever sent to a
+            server. You can paste text or drag-and-drop any file to compute all
+            five hashes at once, copy individual results, toggle between
+            uppercase and lowercase output, and compare two hashes to verify
+            they match &mdash; case-insensitively.
+          </p>
+
+          <h2 className="text-lg font-semibold text-foreground">
+            Security Considerations
+          </h2>
+          <p>
+            For any security-sensitive purpose &mdash; password hashing, certificate
+            pinning, code signing &mdash; always use SHA-256 or higher. MD5 and SHA-1
+            are provided here for compatibility and non-security checksums only.
+            When hashing passwords in production, use a dedicated key derivation
+            function such as bcrypt, scrypt, or Argon2, which add salting and
+            deliberate slowness to resist brute-force attacks.
+          </p>
+        </article>
       </main>
-    </div>
+
+      <footer className="border-t border-card-border py-6 text-center text-xs text-muted">
+        <p>
+          Hash Generator &mdash; Free online hash tool. All processing happens
+          in your browser.
+        </p>
+      </footer>
+    </>
   );
 }
