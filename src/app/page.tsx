@@ -102,11 +102,23 @@ export default function Home() {
         </article>
       </main>
 
-      <footer className="border-t border-card-border py-6 text-center text-xs text-muted">
-        <p>
-          Hash Generator &mdash; Free online hash tool. All processing happens
-          in your browser.
-        </p>
+      <footer className="border-t border-gray-200 py-8 text-center">
+        <div className="max-w-3xl mx-auto px-4">
+          <p className="text-sm text-gray-500 mb-4">Hash Generator — Free online tool. No signup required.</p>
+          <div className="mb-4">
+            <p className="text-xs text-gray-400 mb-2">Related Tools</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              <a href="https://password-generator-sepia-beta.vercel.app" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:text-blue-800 px-2 py-1 bg-blue-50 rounded">Password Generator</a>
+              <a href="https://base64-tools-three.vercel.app" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:text-blue-800 px-2 py-1 bg-blue-50 rounded">Base64 Tools</a>
+              <a href="https://uuid-generator-eight-psi.vercel.app" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:text-blue-800 px-2 py-1 bg-blue-50 rounded">UUID Generator</a>
+              <a href="https://jwt-decoder-five.vercel.app" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:text-blue-800 px-2 py-1 bg-blue-50 rounded">JWT Decoder</a>
+              <a href="https://url-encoder-pi.vercel.app" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:text-blue-800 px-2 py-1 bg-blue-50 rounded">URL Encoder</a>
+            </div>
+          </div>
+          <div className="flex justify-center gap-3 text-xs text-gray-400">
+            <a href="https://cc-tools.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-gray-600">53+ Free Tools →</a>
+          </div>
+        </div>
       </footer>
     </>
   );
